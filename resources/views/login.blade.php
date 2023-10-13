@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/login.css') }}">
     <title>Login</title>
 </head>
@@ -41,31 +43,43 @@
             <!-------------------- ------ Right Box ---------------------------->
 
             <div class="col-md-6 right-box">
+
                 <div class="row align-items-center">
+
+                    
                     <div class="header-text mb-4">
-                        <h2>Welcome Back</h2>
-                        <p>We are happy to have you back.</p>
+                        <h2>Selamat Datang!</h2>
+                        <p>Silahkan Login Terlebih dahulu</p>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Email address">
-                    </div>
-                    <div class="input-group mb-1">
-                        <input type="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Password">
-                    </div>
-                    <div class="input-group mb-5 d-flex justify-content-between">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="formCheck">
-                            <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                    <div class="flex-column">
+
+                        @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('message') }}
                         </div>
-                        <div class="forgot">
-                            <small><a href="#">Forgot Password?</a></small>
-                        </div>
+                    @endif
+                    
                     </div>
+
+                    <form action="" method="POST">
+                        @csrf
                     <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+                        
+                        <input type="email" id="email" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="Email address" required>
+                            <i class="fa-solid fa-user"></i>
                     </div>
+                    <div class="input-group mb-4 ">
+                        <input type="password" id="password" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="Password" required>
+                            <i class="fa-solid fa-lock"></i>
+                    </div>
+                    </div>
+                    <div class="input-group mb-3 ">
+                        <button class="btn btn-lg btn-primary w-100 fs-6" >Login</button>
+                    </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

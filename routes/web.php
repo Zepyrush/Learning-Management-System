@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+// Route::get('/', function () {
+//     return view('login');
+// });
+Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::post('/', [AuthController::class, 'authenticate'])->name('login');
+
+Route::get('/siswa', [StudentController::class, 'index'])->middleware('auth');
+Route::get('/guru', [StudentController::class, 'index'])->middleware('auth');
+
+Route::get('/dashboard', function () {
+    return view('layout.master');
 });
