@@ -66,12 +66,12 @@
                     <div class="input-group mb-3">
                         
                         <input type="email" id="email" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Email address" required>
+                            placeholder="Email address" name="email" required>
                             <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="input-group mb-4 ">
                         <input type="password" id="password" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Password" required>
+                            placeholder="Password" name="password" required>
                             <i class="fa-solid fa-lock"></i>
                     </div>
                     </div>

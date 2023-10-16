@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/', [AuthController::class, 'authenticate'])->name('login');
 
-Route::get('/siswa', [StudentController::class, 'index'])->middleware('auth');
-Route::get('/guru', [StudentController::class, 'index'])->middleware('auth');
+Route::get('siswa', [SiswaController::class, 'index'])->middleware('auth');
+Route::get('guru', [GuruController::class, 'index'])->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('layout.master');
-});
+foreach(File::allFiles(__DIR__.'/web')as $routeFile) require $routeFile->getPathname();

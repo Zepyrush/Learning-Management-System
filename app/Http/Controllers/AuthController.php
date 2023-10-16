@@ -22,14 +22,25 @@ class AuthController extends Controller
  
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
-            return redirect()->intended('/admin');
+
+            if(auth()->user()->level == 'admin') {
+                return redirect()->intended('/admin');
+            } else if(auth()->user()->level == 'guru') {
+                return redirect()->intended('/guru');
+            } else if(auth()->user()->level == 'siswa') {
+                return redirect()->intended('/siswa');
+            }
         }
     
-        Session::flash('status', 'failed');
-        Session::flash('message', 'login gagal');
+        // Session::flash('status', 'failed');
+        // Session::flash('message', 'login gagal');
 
-        return redirect('/');
+
+
+        return redirect('/')->with([
+            'status' => 'failed',
+            'message' => 'login gagal' 
+        ]);
 
     }
 }
