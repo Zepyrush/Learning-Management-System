@@ -1,1 +1,0 @@
-<h1>ini halaman guru</h1>
