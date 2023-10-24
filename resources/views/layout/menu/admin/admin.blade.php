@@ -1,15 +1,3 @@
-
-        <!-- Sidebar user (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <img src="{{ asset('template') }}/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info">
-    <a href="#" class="d-block">Admin</a>
-    </div>
-    </div>
-
-    
     <!-- SidebarSearch Form -->
     <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -22,40 +10,40 @@
         </div>
     </div>
 
-
-<li class="nav-item">
-    <a href="{{ url('/admin') }}" class="nav-link">
-        <i class="nav-icon fas fa-house"></i>
-        <p>Dashboard</p>
-    </a>
-</li>
-
-<li class="nav-item">
-    <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
-        <p>
-            Contoh
-            <i class="right fas fa-angle-left"></i>
-        </p>
-    </a>
-    <ul class="nav nav-treeview">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-header"><b>MAIN</b></li>
         <li class="nav-item">
-            <a href="{{ url('/admin/contoh1') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contoh v1</p>
-            </a>
+            <a href="/admin" class="nav-link active">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>Dashboard</p></a>
         </li>
-        <li class="nav-item">
-            <a href="{{ url('/admin/contoh2') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contoh v2</p>
-            </a>
+        <li class="nav-header"><b>MANAJEMEN SEKOLAH</b></li>
+             <li class="nav-item">
+                <a href="/admin/jurusan" class="nav-link ">
+                <i class="nav-icon fas fa-solid fa-screwdriver-wrench"></i>
+                <p>Jurusan</p>
+                </a>
+             <li class="nav-item">
+                <a href="" class="nav-link ">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>Mata Pelajaran</p>
+                </a>
+             <li class="nav-item">
+                <a href="" class="nav-link ">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>Kelas</p>
+                </a>
         </li>
-        <li class="nav-item">
-            <a href="{{ url('/admin/contoh3') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contoh v3</p>
-            </a>
+        <li class="nav-header"><b>KELOLA PENGGUNA</b></li>
+             <li class="nav-item">
+                <a href="/admin/jurusan" class="nav-link ">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>Data Guru</p>
+                </a>
+             <li class="nav-item">
+                <a href="" class="nav-link ">
+                <i class="nav-icon fas fa-user-graduate"></i>
+                <p>Data Murid</p>
+                </a>
         </li>
-    </ul>
-</li>
+           

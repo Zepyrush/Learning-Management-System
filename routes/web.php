@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\GuruController;
-use App\Http\Controllers\SiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +19,9 @@ use App\Http\Controllers\SiswaController;
 // Route::get('/', function () {
 //     return view('login');
 // });
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login') ;
 Route::post('/', [AuthController::class, 'authenticate'])->name('login');
+Route::get('/logout',[AuthController::class, 'logout'])->middleware('auth');
 
-Route::get('siswa', [SiswaController::class, 'index'])->middleware('auth');
-Route::get('guru', [GuruController::class, 'index'])->middleware('auth');
 
 foreach(File::allFiles(__DIR__.'/web')as $routeFile) require $routeFile->getPathname();
