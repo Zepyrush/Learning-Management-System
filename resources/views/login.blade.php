@@ -12,7 +12,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('assets/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/login/login.css') }}">
     <title>Login</title>
 </head>
 
@@ -31,7 +31,7 @@
             <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
                 style="background: white;">
                 <div class="featured-image mb-3">
-                    <img src="{{ asset('assets/logosmkpgripku.png') }}" class="img-fluid" style="width: 250px;">
+                    <img src="{{ asset('assets/login/logosmkpgripku.png') }}" class="img-fluid" style="width: 250px;">
                 </div>
                 <p class="text-black fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">
                     L.M.S</p>

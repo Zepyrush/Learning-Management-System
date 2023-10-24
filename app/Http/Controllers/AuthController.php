@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
-{
-    public function login()
-    {
-        return view ('login');
+{                                                       
+    
+    public function login() {
+        return view('login');
     }
 
    public function authenticate(Request $request)
@@ -26,21 +26,31 @@ class AuthController extends Controller
             if(auth()->user()->level == 'admin') {
                 return redirect()->intended('/admin');
             } else if(auth()->user()->level == 'guru') {
-                return redirect()->intended('/guru`');
+                return redirect()->intended('/guru');
             } else if(auth()->user()->level == 'siswa') {
                 return redirect()->intended('/siswa');
             }
         }
-    
-        // Session::flash('status', 'failed');
-        // Session::flash('message', 'login gagal');
-
-
-
         return redirect('/')->with([
             'status' => 'failed',
             'message' => 'login gagal' 
         ]);
 
+        
     }
+
+    public function logout(Request $request){
+
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+     
+        return redirect('/');
+    
+    }
+
+
+    
 }
